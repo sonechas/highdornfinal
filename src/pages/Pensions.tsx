@@ -50,8 +50,8 @@ const Pensions = () => {
             transition={{ duration: 0.8 }}
             className="text-center"
           >
-            <h1 className="text-5xl font-bold mb-6" style={{ color: '#FFFFFF' }}>Pension Documents</h1>
-            <p className="text-xl max-w-3xl mx-auto" style={{ color: '#FFFFFF' }}>
+            <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-6 px-4" style={{ color: '#FFFFFF' }}>Pension Documents</h1>
+            <p className="text-base sm:text-lg md:text-xl max-w-3xl mx-auto px-4" style={{ color: '#FFFFFF' }}>
               Access all pension scheme documents and reports
             </p>
           </motion.div>
@@ -93,7 +93,7 @@ const Pensions = () => {
                     className="p-4 md:p-6"
                   >
                     {/* Mobile-only download option */}
-                    <div className="block md:hidden">
+                    <div className="block lg:hidden">
                       <div className="bg-blue-50 dark:bg-blue-900/20 border border-blue-200 dark:border-blue-700 rounded-lg p-4 text-center">
                         <p className="text-gray-700 dark:text-gray-300 mb-3">
                           Download the PDF to view:
@@ -113,7 +113,7 @@ const Pensions = () => {
                     </div>
 
                     {/* Desktop PDF viewer */}
-                    <div className="hidden md:block w-full" style={{ height: '800px' }}>
+                    <div className="hidden lg:block w-full" style={{ height: '600px' }}>
                       <iframe
                         src={document.file}
                         width="100%"

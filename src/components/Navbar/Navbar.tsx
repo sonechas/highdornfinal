@@ -241,31 +241,34 @@ const Navbar = () => {
                       className="absolute top-full left-1/2 transform -translate-x-1/2 mt-2 bg-white dark:bg-gray-800 rounded-xl shadow-2xl border border-gray-200 dark:border-gray-700 p-4 z-50"
                       onMouseEnter={handleDropdownMouseEnter}
                       onMouseLeave={handleDropdownMouseLeave}
-                      style={{ width: item.dropdown.length === 2 ? '600px' : '900px' }}
+                      style={{ 
+                        width: item.dropdown.length === 2 ? 'min(600px, 90vw)' : 'min(900px, 95vw)',
+                        maxWidth: '95vw'
+                      }}
                     >
                       {/* Arrow pointing up */}
                       <div className="absolute -top-2 left-1/2 transform -translate-x-1/2 w-4 h-4 bg-white dark:bg-gray-800 border-l border-t border-gray-200 dark:border-gray-700 rotate-45"></div>
                       
                       <div className="relative">
-                        <div className={`grid ${item.dropdown.length === 2 ? 'grid-cols-2' : 'grid-cols-3'} gap-4`}>
+                        <div className={`grid ${item.dropdown.length === 2 ? 'grid-cols-1 sm:grid-cols-2' : 'grid-cols-1 sm:grid-cols-2 lg:grid-cols-3'} gap-3 sm:gap-4`}>
                           {item.dropdown.map((dropdownItem) => (
                             <button
                               key={dropdownItem.name}
                               onClick={() => handleNavigation(dropdownItem.href)}
                               className="group bg-white dark:bg-gray-800 rounded-lg overflow-hidden hover:shadow-xl transition-all duration-300 border border-gray-100 dark:border-gray-700 hover:border-blue-300 dark:hover:border-blue-600"
                             >
-                              <div className="aspect-video overflow-hidden">
+                              <div className="aspect-video overflow-hidden hidden sm:block">
                                 <img 
                                   src={dropdownItem.image} 
                                   alt={dropdownItem.name}
                                   className="w-full h-full object-cover object-center group-hover:scale-110 transition-transform duration-500"
                                 />
                               </div>
-                              <div className="p-4 text-left">
-                                <h3 className="font-semibold text-gray-900 dark:text-white group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors duration-200">
+                              <div className="p-3 sm:p-4 text-left">
+                                <h3 className="font-semibold text-sm sm:text-base text-gray-900 dark:text-white group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors duration-200">
                                   {dropdownItem.name}
                                 </h3>
-                                <p className="mt-1 text-sm text-gray-600 dark:text-gray-400 line-clamp-2">
+                                <p className="mt-1 text-xs sm:text-sm text-gray-600 dark:text-gray-400 line-clamp-2 hidden sm:block">
                                   {dropdownItem.description}
                                 </p>
                               </div>
@@ -301,7 +304,7 @@ const Navbar = () => {
       </div>
 
       {isOpen && (
-        <div className="md:hidden bg-white/95 dark:bg-gray-900/95 backdrop-blur-lg">
+        <div className="md:hidden bg-white/95 dark:bg-gray-900/95 backdrop-blur-lg max-h-screen overflow-y-auto">
           <div className="px-2 pt-2 pb-3 space-y-1 sm:px-3">
             {navItems.map((item) => (
               <div key={item.name}>
@@ -325,23 +328,23 @@ const Navbar = () => {
                 </button>
                 
                 {item.dropdown && activeDropdown === item.name && (
-                  <div className="ml-6 mt-2 space-y-2">
+                  <div className="ml-4 sm:ml-6 mt-2 space-y-2">
                     {item.dropdown.map((dropdownItem) => (
                       <button
                         key={dropdownItem.name}
                         onClick={() => handleNavigation(dropdownItem.href)}
-                        className="flex items-start gap-3 p-3 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors duration-200 w-full"
+                        className="flex items-start gap-3 p-2 sm:p-3 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors duration-200 w-full"
                       >
                         <img 
                           src={dropdownItem.image} 
                           alt={dropdownItem.name}
-                          className="w-16 h-12 object-cover rounded"
+                          className="w-12 sm:w-16 h-9 sm:h-12 object-cover rounded flex-shrink-0"
                         />
                         <div className="text-left">
-                          <h4 className="text-sm font-medium text-gray-900 dark:text-white">
+                          <h4 className="text-xs sm:text-sm font-medium text-gray-900 dark:text-white">
                             {dropdownItem.name}
                           </h4>
-                          <p className="text-xs text-gray-600 dark:text-gray-400 line-clamp-2">
+                          <p className="text-xs text-gray-600 dark:text-gray-400 line-clamp-2 mt-1">
                             {dropdownItem.description}
                           </p>
                         </div>

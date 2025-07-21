@@ -91,10 +91,10 @@ const ContactUs = () => {
           transition={{ duration: 0.6 }}
           className="text-center mb-16"
         >
-          <h2 className="text-4xl font-bold text-gray-900 dark:text-white mb-4">
+          <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-gray-900 dark:text-white mb-4">
             Our Office Locations
           </h2>
-          <p className="text-xl text-gray-600 dark:text-gray-300 max-w-3xl mx-auto">
+          <p className="text-base sm:text-lg md:text-xl text-gray-600 dark:text-gray-300 max-w-3xl mx-auto px-4">
             Find us at our various offices across the UK
           </p>
         </motion.div>
@@ -109,12 +109,12 @@ const ContactUs = () => {
             className="bg-white dark:bg-gray-800 rounded-lg shadow-lg p-6 flex flex-col justify-between hover:shadow-xl transition-shadow duration-300 mx-auto w-full max-w-md text-center" // Centered and max-width added
           >
             <div>
-              <h3 className="text-xl font-bold text-gray-900 dark:text-white mb-3">
+              <h3 className="text-lg sm:text-xl font-bold text-gray-900 dark:text-white mb-3">
                 {companyInfo.name}
               </h3>
               <div className="space-y-1 text-gray-700 dark:text-gray-300">
                 {companyInfo.details.map((detail, detailIndex) => (
-                  <p key={detailIndex} className="text-sm">
+                  <p key={detailIndex} className="text-xs sm:text-sm">
                     {detail}
                   </p>
                 ))}
@@ -123,34 +123,37 @@ const ContactUs = () => {
           </motion.div>
 
           {/* Render Office Cards */}
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mt-8"> {/* Added margin-top for spacing */}
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8 mt-8"> {/* Added margin-top for spacing */}
             {offices.map((office, index) => (
               <motion.div
                 key={office.id}
                 initial={{ opacity: 0, y: 30 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6, delay: index * 0.1 }}
-                className="bg-white dark:bg-gray-800 rounded-lg shadow-lg p-6 flex flex-col justify-between hover:shadow-xl transition-shadow duration-300"
+                className="bg-white dark:bg-gray-800 rounded-lg shadow-lg p-4 sm:p-6 flex flex-col justify-between hover:shadow-xl transition-shadow duration-300"
               >
                 <div>
-                  <h3 className="text-xl font-bold text-gray-900 dark:text-white mb-3">
+                  <h3 className="text-lg sm:text-xl font-bold text-gray-900 dark:text-white mb-3">
                     {office.name}
                   </h3>
                   <div className="space-y-1 text-gray-700 dark:text-gray-300 mb-4">
                     {office.address.map((line, addrIndex) => (
-                      <p key={addrIndex} className="flex items-center gap-2 text-sm">
+                      <p key={addrIndex} className="flex items-start gap-2 text-xs sm:text-sm">
                         {addrIndex === 0 && <MapPin className="w-4 h-4 text-blue-600 dark:text-blue-400 flex-shrink-0" />}
-                        {line}
+                        <span className="break-words">{line}</span>
                       </p>
                     ))}
                   </div>
                 </div>
                 <div className="mt-auto pt-4 border-t border-gray-200 dark:border-gray-700">
                   {office.phone && (
-                    <p className="flex items-center gap-2 text-blue-600 dark:text-blue-400 text-sm font-medium">
+                    <a 
+                      href={`tel:${office.phone.replace(/\s/g, '')}`}
+                      className="flex items-center gap-2 text-blue-600 dark:text-blue-400 text-xs sm:text-sm font-medium hover:underline"
+                    >
                       <PhoneCall className="w-4 h-4" />
                       {office.phone}
-                    </p>
+                    </a>
                   )}
                   {/* Fax rendering removed */}
                 </div>

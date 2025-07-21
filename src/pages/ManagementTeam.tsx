@@ -54,8 +54,8 @@ const ManagementTeam = () => {
             transition={{ duration: 0.8 }}
             className="text-center"
           >
-            <h1 className="text-5xl font-bold mb-6" style={{ color: '#FFFFFF' }}>Management Team</h1>
-            <p className="text-xl max-w-3xl mx-auto" style={{ color: '#FFFFFF' }}>
+            <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-6 px-4" style={{ color: '#FFFFFF' }}>Management Team</h1>
+            <p className="text-base sm:text-lg md:text-xl max-w-3xl mx-auto px-4" style={{ color: '#FFFFFF' }}>
               Dedicated professionals managing our properties and ensuring exceptional service delivery
             </p>
           </motion.div>
@@ -65,7 +65,7 @@ const ManagementTeam = () => {
       {/* Managers Grid */}
       <section className="py-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-8 justify-center"> {/* Keeping 2 columns for better alignment and readability */}
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 sm:gap-8 justify-center"> {/* Keeping 2 columns for better alignment and readability */}
             {managers.map((manager, index) => (
               <motion.div
                 key={manager.id}
@@ -74,29 +74,29 @@ const ManagementTeam = () => {
                 transition={{ duration: 0.6, delay: index * 0.1 }}
                 className="bg-white dark:bg-gray-800 rounded-lg shadow-lg overflow-hidden hover:shadow-xl transition-shadow duration-300 flex flex-col" // Added flex-col for consistent height
               >
-                <div className="p-6 flex-grow"> {/* flex-grow to make bio section expand */}
-                  <h3 className="text-2xl font-bold text-gray-900 dark:text-white mb-2">
+                <div className="p-4 sm:p-6 flex-grow"> {/* flex-grow to make bio section expand */}
+                  <h3 className="text-xl sm:text-2xl font-bold text-gray-900 dark:text-white mb-2">
                     {manager.name}
                   </h3>
-                  <p className="text-blue-600 dark:text-blue-400 font-medium text-lg mb-4">
+                  <p className="text-blue-600 dark:text-blue-400 font-medium text-base sm:text-lg mb-4">
                     {manager.position}
                   </p>
                   
-                  <div className="flex items-center gap-4 mb-4 text-sm">
-                    <span className="bg-blue-100 dark:bg-blue-900 text-blue-800 dark:text-blue-200 px-2 py-1 rounded-full text-xs font-semibold">
+                  <div className="flex flex-col sm:flex-row sm:items-center gap-2 sm:gap-4 mb-4 text-sm">
+                    <span className="bg-blue-100 dark:bg-blue-900 text-blue-800 dark:text-blue-200 px-2 py-1 rounded-full text-xs font-semibold w-fit">
                       {manager.specialization}
                     </span>
-                    <span className="text-gray-600 dark:text-gray-400 flex items-center gap-1 text-sm">
+                    <span className="text-gray-600 dark:text-gray-400 flex items-center gap-1 text-xs sm:text-sm">
                       <MapPin className="w-4 h-4 text-gray-500" /> {/* Changed icon to MapPin */}
                       {manager.location}
                     </span>
-                    <span className="text-gray-600 dark:text-gray-400 flex items-center gap-1 text-sm">
+                    <span className="text-gray-600 dark:text-gray-400 flex items-center gap-1 text-xs sm:text-sm">
                       <Award className="w-4 h-4 text-yellow-500" /> {/* Re-added Award for experience */}
                       {manager.experience}
                     </span>
                   </div>
                   
-                  <p className="text-gray-700 dark:text-gray-300 mb-6 leading-relaxed text-base">
+                  <p className="text-gray-700 dark:text-gray-300 mb-6 leading-relaxed text-sm sm:text-base">
                     {manager.bio}
                   </p>
                   

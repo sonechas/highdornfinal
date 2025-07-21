@@ -136,16 +136,16 @@ const Properties = () => {
           transition={{ duration: 0.6 }}
           className="text-center mb-16"
         >
-          <h2 className="text-4xl font-bold text-gray-900 dark:text-white mb-4">
+          <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-gray-900 dark:text-white mb-4">
             Featured Properties
           </h2>
-          <p className="text-xl text-gray-600 dark:text-gray-300 max-w-3xl mx-auto">
+          <p className="text-base sm:text-lg md:text-xl text-gray-600 dark:text-gray-300 max-w-3xl mx-auto px-4">
             Discover our carefully curated selection of premium properties
           </p>
         </motion.div>
 
         {/* Search and Filter */}
-        <div className="flex flex-col md:flex-row gap-4 mb-12">
+        <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 mb-8 sm:mb-12">
           <div className="relative flex-1">
             <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400 w-5 h-5" />
             <input
@@ -153,13 +153,13 @@ const Properties = () => {
               placeholder="Search properties..."
               value={searchTerm}
               onChange={(e) => setSearchTerm(e.target.value)}
-              className="w-full pl-10 pr-4 py-3 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent bg-white dark:bg-gray-700 text-gray-900 dark:text-white"
+              className="w-full pl-10 pr-4 py-2 sm:py-3 text-sm sm:text-base border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent bg-white dark:bg-gray-700 text-gray-900 dark:text-white"
             />
           </div>
-          <div className="flex gap-2">
+          <div className="flex gap-2 overflow-x-auto pb-2 sm:pb-0">
             <button
               onClick={() => setSelectedType('all')}
-              className={`px-4 py-3 rounded-lg font-medium transition-colors ${
+              className={`px-3 sm:px-4 py-2 sm:py-3 rounded-lg font-medium transition-colors text-sm sm:text-base whitespace-nowrap ${
                 selectedType === 'all'
                   ? 'bg-blue-600 text-white'
                   : 'bg-gray-200 dark:bg-gray-700 text-gray-700 dark:text-gray-300 hover:bg-gray-300 dark:hover:bg-gray-600'
@@ -169,7 +169,7 @@ const Properties = () => {
             </button>
             <button
               onClick={() => setSelectedType('residential')}
-              className={`px-4 py-3 rounded-lg font-medium transition-colors ${
+              className={`px-3 sm:px-4 py-2 sm:py-3 rounded-lg font-medium transition-colors text-sm sm:text-base whitespace-nowrap ${
                 selectedType === 'residential'
                   ? 'bg-blue-600 text-white'
                   : 'bg-gray-200 dark:bg-gray-700 text-gray-700 dark:text-gray-300 hover:bg-gray-300 dark:hover:bg-gray-600'
@@ -179,7 +179,7 @@ const Properties = () => {
             </button>
             <button
               onClick={() => setSelectedType('commercial')}
-              className={`px-4 py-3 rounded-lg font-medium transition-colors ${
+              className={`px-3 sm:px-4 py-2 sm:py-3 rounded-lg font-medium transition-colors text-sm sm:text-base whitespace-nowrap ${
                 selectedType === 'commercial'
                   ? 'bg-blue-600 text-white'
                   : 'bg-gray-200 dark:bg-gray-700 text-gray-700 dark:text-gray-300 hover:bg-gray-300 dark:hover:bg-gray-600'
@@ -191,7 +191,7 @@ const Properties = () => {
         </div>
 
         {/* Properties Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
           {filteredProperties.map((property, index) => (
             <motion.div
               key={property.id}
@@ -204,7 +204,7 @@ const Properties = () => {
                 <img
                   src={property.image_url}
                   alt={property.title}
-                  className="w-full h-48 object-cover transition-transform duration-300 hover:scale-105"
+                  className="w-full h-40 sm:h-48 object-cover transition-transform duration-300 hover:scale-105"
                 />
                 <div className="absolute top-4 left-4">
                   <span className={`px-3 py-1 rounded-full text-sm font-medium ${
@@ -217,11 +217,11 @@ const Properties = () => {
                 </div>
               </div>
               
-              <div className="p-6">
-                <h3 className="text-xl font-semibold text-gray-900 dark:text-white mb-2">
+              <div className="p-4 sm:p-6">
+                <h3 className="text-lg sm:text-xl font-semibold text-gray-900 dark:text-white mb-2">
                   {property.title}
                 </h3>
-                <p className="text-gray-600 dark:text-gray-300 mb-4">
+                <p className="text-sm sm:text-base text-gray-600 dark:text-gray-300 mb-4">
                   {property.description}
                 </p>
                 
@@ -231,7 +231,7 @@ const Properties = () => {
                 </div>
                 
                 {property.type === 'residential' && (
-                  <div className="flex items-center gap-4 mb-4 text-sm text-gray-600 dark:text-gray-300">
+                  <div className="flex items-center gap-3 sm:gap-4 mb-4 text-xs sm:text-sm text-gray-600 dark:text-gray-300">
                     <div className="flex items-center gap-1">
                       <BedDouble className="w-4 h-4" />
                       <span>{property.bedrooms}</span>
@@ -248,7 +248,7 @@ const Properties = () => {
                 )}
                 
                 {property.type === 'commercial' && (
-                  <div className="flex items-center gap-4 mb-4 text-sm text-gray-600 dark:text-gray-300">
+                  <div className="flex items-center gap-3 sm:gap-4 mb-4 text-xs sm:text-sm text-gray-600 dark:text-gray-300">
                     <div className="flex items-center gap-1">
                       <Square className="w-4 h-4" />
                       <span>{property.area.toLocaleString()} sqft</span>
@@ -260,11 +260,11 @@ const Properties = () => {
                   </div>
                 )}
                 
-                <div className="flex items-center justify-between">
-                  <div className="text-2xl font-bold text-blue-600 dark:text-blue-400">
+                <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3">
+                  <div className="text-lg sm:text-2xl font-bold text-blue-600 dark:text-blue-400">
                     {formatPrice(property.price)}
                   </div>
-                  <button className="bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-lg transition-colors duration-200">
+                  <button className="bg-blue-600 hover:bg-blue-700 text-white px-3 sm:px-4 py-2 rounded-lg transition-colors duration-200 text-sm sm:text-base w-full sm:w-auto">
                     View Details
                   </button>
                 </div>

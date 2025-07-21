@@ -65,10 +65,10 @@ const About = () => {
               transition={{ duration: 0.6 }}
               className="text-center"
             >
-              <h2 className="text-4xl font-bold text-gray-900 mb-4">
+              <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-gray-900 mb-4">
                 About Highdorn Group
               </h2>
-              <p className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
+              <p className="text-base sm:text-lg md:text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed px-4">
                 A leading property management group with a commitment to excellence and innovation
               </p>
             </motion.div>
@@ -76,31 +76,31 @@ const About = () => {
       </section>
 
       {/* Main Content Section with Dark Background */}
-      <section className="py-20 bg-[#101826]">
+      <section className="py-12 sm:py-16 md:py-20 bg-[#101826]">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-12 mb-16">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 sm:gap-12 mb-12 sm:mb-16">
             <motion.div
               initial={{ opacity: 0, x: -30 }}
               whileInView={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.6 }}
               className="space-y-6"
             >
-              <h3 className="text-2xl font-bold text-white">
+              <h3 className="text-xl sm:text-2xl font-bold text-white">
                 Our Heritage
               </h3>
               <div className="prose prose-invert max-w-none">
-                <p className="text-gray-300 leading-relaxed">
+                <p className="text-sm sm:text-base text-gray-300 leading-relaxed">
                   Highdorn Group is a property management group that manages both commercial and 
                   residential properties in the UK. Highdorn is owned and controlled by the Freshwater family.
                 </p>
-                <p className="text-gray-300 leading-relaxed">
+                <p className="text-sm sm:text-base text-gray-300 leading-relaxed">
                   Almost all the properties Highdorn manages are owned by two property investment groups - 
                   <a href="#" className="text-blue-400 hover:text-blue-500 mx-1">Daejan Holdings</a> 
                   and 
                   <a href="#" className="text-blue-400 hover:text-blue-500 mx-1">Centremanor Group</a>
                   that are also owned and controlled by the Freshwater family.
                 </p>
-                <p className="text-gray-300 leading-relaxed">
+                <p className="text-sm sm:text-base text-gray-300 leading-relaxed">
                   Colloquially these groups together are known as the 
                   <a href="#" className="text-blue-400 hover:text-blue-500 mx-1">Freshwater Group</a>
                   although this is not a legal entity.
@@ -114,15 +114,15 @@ const About = () => {
               transition={{ duration: 0.6 }}
               className="space-y-6"
             >
-              <h3 className="text-2xl font-bold text-white">
+              <h3 className="text-xl sm:text-2xl font-bold text-white">
                 Our Services
               </h3>
               <div className="prose prose-invert max-w-none">
-                <p className="text-gray-300 leading-relaxed">
+                <p className="text-sm sm:text-base text-gray-300 leading-relaxed">
                   Highdorn employs most of the people in the Freshwater Group and supplies their services to 
                   other groups and companies within the Freshwater Group.
                 </p>
-                <p className="text-gray-300 leading-relaxed">
+                <p className="text-sm sm:text-base text-gray-300 leading-relaxed">
                   Details relevant to employment matters are therefore included in this website, 
                   for example details of the Defined Benefit Pension Scheme.
                 </p>
@@ -137,15 +137,15 @@ const About = () => {
                 initial={{ opacity: 0, y: 30 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6, delay: index * 0.1 }}
-                className="bg-gray-800 p-6 rounded-lg shadow-lg hover:shadow-xl transition-shadow duration-300"
+                className="bg-gray-800 p-4 sm:p-6 rounded-lg shadow-lg hover:shadow-xl transition-shadow duration-300"
               >
                 <div className="w-12 h-12 bg-blue-900/50 rounded-lg flex items-center justify-center mb-4">
                   <feature.icon className="w-6 h-6 text-blue-400" />
                 </div>
-                <h4 className="text-xl font-semibold text-white mb-2">
+                <h4 className="text-lg sm:text-xl font-semibold text-white mb-2">
                   {feature.title}
                 </h4>
-                <p className="text-gray-300">
+                <p className="text-sm sm:text-base text-gray-300">
                   {feature.description}
                 </p>
               </motion.div>
